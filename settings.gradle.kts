@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ShapeableImageView"
 include(":app")
- 
+include(":ShapeableImageView")

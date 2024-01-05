@@ -1,19 +1,17 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
+    id("maven-publish")
 }
 
 android {
-    namespace = "com.jummania.shapeableimageview"
+    namespace = "com.jummania"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.jummania.shapeableimageview"
         minSdk = 16
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -32,8 +30,21 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation(project(":ShapeableImageView"))
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                groupId = "com.github.Jumman04"
+                artifactId = "ShapeableImageView"
+                version = "1.0"
+
+                afterEvaluate {
+                    from(components.findByName("java"))
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ShapeableImageView">
+
+        <attr name="cornerMode" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+
+        <attr name="radius" format="dimension|fraction" />
+
+    </declare-styleable>
+</resources>
