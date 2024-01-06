@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
@@ -11,6 +12,7 @@
     <com.jummania.ShapeableImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:shapeType="SPECIFIC_CORNER_CUT"
         android:src="@drawable/ic_launcher_background" />
 
 </LinearLayout>
