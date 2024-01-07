@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class ShapeableImageView extends com.google.android.material.imageview.ShapeableImageView {
 
-    private CornerType cornerType = CornerType.ROUNDED;
+    private CornerType cornerType = CornerType.DEFAULT;
     private float radius = -1;
 
     public ShapeableImageView(Context context) {
@@ -29,8 +29,12 @@ public class ShapeableImageView extends com.google.android.material.imageview.Sh
     public void setCornerShape() {
         this.setShapeAppearanceModel(this.getShapeAppearanceModel()
                 .toBuilder()
-                .setAllCorners(getCornerType().ordinal(), getRadius())
+                .setAllCorners(getCornerFamily(), getRadius())
                 .build());
+    }
+
+    private int getCornerFamily() {
+        return getCornerType().getCornerType();
     }
 
     public void setCornerShape(CornerType cornerType, float radius) {
@@ -45,12 +49,12 @@ public class ShapeableImageView extends com.google.android.material.imageview.Sh
 
         try {
             // Get values from the TypedArray
-            setCornerType(CornerType.values()[typedArray.getInt(R.styleable.ShapeableImageView_cornerMode, /* default value */ CornerType.ROUNDED.ordinal())]);
+            setCornerType(CornerType.values()[typedArray.getInt(R.styleable.ShapeableImageView_cornerMode, /* default value */ CornerType.DEFAULT.ordinal())]);
             setRadius(typedArray.getDimension(R.styleable.ShapeableImageView_radius, /* default value */ -1));
             // Use the obtained values as needed
             // ...
 
-            if (radius > -1)
+            if (radius > -1 && getCornerType() != CornerType.DEFAULT)
                 setCornerShape();
 
         } finally {
@@ -63,10 +67,9 @@ public class ShapeableImageView extends com.google.android.material.imageview.Sh
     @Override
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
         super.onSizeChanged(width, height, oldWidth, oldHeight);
-        if (radius == -1) {
-            setRadius(Math.min(width, height) * (50 / 100f));
-            setCornerShape();
-        }
+        if (getCornerType() == CornerType.DEFAULT)
+            setCornerShape(CornerType.ROUNDED, Math.min(width, height) * (50 / 100f));
+
     }
 
     public float getRadius() {
