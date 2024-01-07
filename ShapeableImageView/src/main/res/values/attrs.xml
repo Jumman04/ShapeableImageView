@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Declare a styleable for ShapeableImageView -->
     <declare-styleable name="ShapeableImageView">
 
+        <!-- Define an attribute for corner mode with enum values -->
         <attr name="cornerMode" format="enum">
+            <!-- Rounded corners -->
             <enum name="rounded" value="0" />
+            <!-- Cut corners -->
             <enum name="cut" value="1" />
         </attr>
 
+        <!-- Define an attribute for corner radius with float format -->
         <attr name="radius" format="float" />
 
     </declare-styleable>
+
 </resources>
