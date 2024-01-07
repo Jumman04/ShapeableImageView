@@ -2,20 +2,9 @@
 <resources>
     <declare-styleable name="ShapeableImageView">
 
-        <attr name="cornerType" format="enum">
-            <enum name="ROUNDED" value="0" />
-            <enum name="CUT" value="1" />
-        </attr>
-
-
-        <attr name="shapeType" format="enum">
-            <enum name="CORNER_CUT" value="0" />
-            <enum name="CUT" value="1" />
-            <enum name="DIAMOND_CUT" value="2" />
-            <enum name="ROUNDED" value="3" />
-            <enum name="ROUNDED_SQUARE" value="4" />
-            <enum name="SPECIFIC_CORNER_CUT" value="5" />
-            <enum name="SPECIFIC_CORNER_ROUNDED" value="6" />
+        <attr name="cornerMode" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
         </attr>
 
         <attr name="radius" format="float" />

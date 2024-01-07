@@ -10,9 +10,9 @@
     android:gravity="center">
 
     <com.jummania.ShapeableImageView
+        android:id="@+id/shapeableImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:shapeType="SPECIFIC_CORNER_CUT"
         android:src="@drawable/ic_launcher_background" />
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.jummania.type;
+package com.jummania;
 
 public enum CornerType {
     ROUNDED,
